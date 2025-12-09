@@ -1,0 +1,28 @@
+{% assign id = include.id %}
+{% unless include.no_center %}<div class="image center">{% endunless %}
+  {% unless include.no_mag %}<div class="relative">{% endunless %}
+    {% if include.lightbox %}
+      {% unless include.no_mag %}
+        <div class="zoomicon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+      {% endunless %}
+      <a {% if include.big %}
+         href="{{ include.big | absolute_url }}" 
+        {% else %}
+          href="{{ include.url | absolute_url }}"
+        {% endif %}
+          class="glightbox" {% if include.description %}data-glightbox="title: {{include.title}};description: .{{ id }};{% if include.descloc %} descPosition: {{include.descloc}};{% endif %}"{% endif %}>
+    {% endif %}
+    <img src="{{ include.url | absolute_url }}" {% unless include.no_alt %}alt="{{ include.description }}"{% endunless %}>
+    {% if include.lightbox %}
+      </a>
+      {% if include.description %}
+        <div class="glightbox-desc {{id}}">
+          {{ include.description | markdownify | remove: '<p>' | remove: '</p>' }}
+        </div>
+      {% endif %}
+    {% endif %}
+  {% unless include.no_mag %}</div>{% endunless %}
+  {% unless include.no_center %}{% if include.description %}
+    {{ include.description | markdownify | remove: '<p>' | remove: '</p>' }}
+    {% endif %}{% endunless %}
+  {% unless include.no_center %}</div>{% endunless %}

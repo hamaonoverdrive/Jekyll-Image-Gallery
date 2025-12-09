@@ -1,0 +1,168 @@
+---
+layout: default
+---
+{{ page.content | markdownify }}
+
+<h2 id="filters"><a class="anchor" href="#filters"></a>Filters</h2>
+{% for group in site.data.gallery.tags %}
+	<h4 id="{{ group[0] }}"><a class="anchor" href="#{{ group[0] }}"></a>{{ group[0] }}</h4>
+	<table class="group1">
+	{% if group[1].first.first %}
+		{% for subgroup in group[1] %}
+		<tr><td>
+				<table class="group2" id="tb-{{ subgroup.first.first | slugify: "ascii" }}"><tr>
+						<td>
+							<input type="checkbox" id="ch-{{ subgroup.first.first | slugify: "ascii" }}" onclick="toggleArtVis('{{ subgroup.first.first | slugify: "ascii" }}')" checked />
+							{{ subgroup.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ subgroup.first.first | slugify: 'ascii' }}')"><i class="fa-solid fa-angles-right" id="ic-{{ subgroup.first.first | slugify: 'ascii'}}"></i></a>
+						</td><td id="{{ subgroup.first.first | slugify: 'ascii' }}" style="display:none;">
+							{% for tag in subgroup[subgroup.first.first] %}
+								{% if tag.first.first %}
+									<table class="group3" id="tb-{{ tag.first.first | slugify: "ascii" }}"><tr>
+											<td>
+												<input type="checkbox" id="ch-{{ tag.first.first | slugify: "ascii" }}" onclick="toggleArtVis('{{ tag.first.first | slugify: "ascii" }}')" checked />
+												{{ tag.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ tag.first.first | slugify: 'ascii' }}')"><i class="fa-solid fa-angles-right" id="ic-{{ tag.first.first | slugify: 'ascii' }}"></i></a>
+											</td><td id="{{ tag.first.first | slugify: 'ascii' }}" style="display:none;">
+										{% for subtag in tag[tag.first.first] %}
+											<input type="checkbox" id="ch-{{ subtag | slugify: "ascii" }}" onclick="toggleArtVis('{{ subtag | slugify: "ascii" }}')" checked />
+											{{ subtag }}<br/>
+										{% endfor %}
+									</td></tr></table>
+								{% else %}
+									<input type="checkbox" id="ch-{{ tag | slugify: "ascii" }}" onclick="toggleArtVis('{{ tag | slugify: "ascii" }}')" checked />
+									{{ tag }}<br/>
+								{% endif %}
+							{% endfor %}
+						</td>
+				</tr></table>
+			</td></tr>
+		{% endfor %}
+	{% else %}
+		{% for tag in group[1] %}
+			<tr><td>
+				<input type="checkbox" id="ch-{{ tag | slugify: "ascii" }}" onclick="toggleArtVis('{{ tag | slugify: "ascii" }}')" checked />
+				{{tag}}
+			</td></tr>
+		{% endfor %}
+	{% endif %}
+	</table>
+{% endfor %}
+
+
+{% for datum in site.data.gallery.images reversed %}
+	<h2 id="{{ datum[0] }}"><a class="anchor" href="#{{datum[0]}}"></a>{{ datum[0] }}</h2>
+	{% if datum[1].desc %}
+		{{ datum[1].desc | markdownify }}
+	{% endif %}
+	<div class="ezgallery montage">
+		{% for image in datum[1].images %}
+			{% assign path = "/imgs/gallery/" | append: image.path %}
+			{% assign thumb = path | getthumb %}
+			{% assign id = path | split: "." | first | split: "/" | last | slugify: "ascii" | replace: "2", "t" %}
+			{% assign tagtext = "<b>Tagged with</b>: " %}
+			{% comment %}
+			<span class="gallery-item {% for taglist in image.tags %}{% for tag in taglist[1] %}{% assign tagtext = tagtext | append: '<u><a href="/gallery?' | append: taglist[0] | append: '=' | append: tag | append: '">' | append: tag | append: "</a></u> " %}{{ tag | slugify: "ascii" | append: " " }}{% endfor %}{% endfor %}">
+				above links don't work right now.
+				needed fixes:
+			  - need to slugify parts of url (can't do it inline afaik)
+				- need the code that reads in url params to automatically set parent groups correctly
+			{% endcomment %}
+			<span class="gallery-item {% for taglist in image.tags %}{% for tag in taglist[1] %}{% assign tagtext = tagtext | append: '<u>' | append: tag | append: "</u> " %}{{ tag | slugify: "ascii" | append: " " }}{% endfor %}{% endfor %}">
+				{% if image.desc %}
+					{% assign description = image.desc | smartify | append: "<br/><br/>" | append: tagtext %}
+				{% else %}
+					{% assign description = tagtext %}
+				{% endif %}
+				{% assign permalink_start = " <a href='" %}
+				{% assign permalink_link = page.url | remove: ".html" %}
+				{% assign permalink_mid = "?pic=" %}
+				{% assign permalink_end = "'><i class='fa-solid fa-link'></i></a>" %}
+				{% assign title = image.title | smartify | append: permalink_start | append: permalink_link | append: permalink_mid | append: image.path | append: permalink_end %}
+				{% assign loc = path | textloc %}
+			{% include image.html url=thumb big=path no_mag="true" no_alt="true" lightbox="true" no_center="true" id=id description=description title=title descloc=loc %}
+			</span>
+		{% endfor %}
+	</div>
+{% endfor %}
+
+<script>
+	var lightbox = GLightbox();
+	var og_elems = lightbox.elements.slice(0);
+
+	var groups = {};
+	var root_groups = [];
+
+	{% for group in site.data.gallery.tags %}
+		groups["{{ group[0] | slugify: "ascii" }}"] = [];
+		root_groups.push("{{ group[0] | slugify: "ascii" }}");
+		{% if group[1].first.first %}
+			{% for subgroup in group[1] %}
+				groups["{{ group[0] | slugify: "ascii" }}"].push("{{ subgroup.first.first | slugify: "ascii" }}");
+				groups["{{ subgroup.first.first | slugify: "ascii" }}"] = [];
+				{% for tag in subgroup[subgroup.first.first] %}
+					{% if tag.first.first %}
+						groups["{{ subgroup.first.first | slugify: "ascii" }}"].push("{{ tag.first.first | slugify: "ascii" }}")
+						groups["{{ tag.first.first | slugify: "ascii" }}"] = [];
+							{% for subtag in tag[tag.first.first] %}
+								groups["{{ tag.first.first | slugify: "ascii" }}"].push("{{ subtag | slugify: "ascii" }}");
+							{% endfor %}
+					{% else %}
+						groups["{{ subgroup.first.first | slugify: "ascii" }}"].push("{{ tag | slugify: "ascii" }}");
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		{% else %}
+			{% for tag in group[1] %}
+				groups["{{ group[0] | slugify: "ascii" }}"].push("{{ tag | slugify: "ascii" }}");
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+
+	let default_groups = {};
+
+	{% if site.data.gallery.default %}
+		default_groups = {
+		{% for group in site.data.gallery.default %}
+			"{{ group[0] | slugify: "ascii" }}": [
+			{% for tag in group[1] %}
+				"{{ tag | slugify: "ascii" }}", 
+			{% endfor %}
+			],
+		{% endfor %}
+		};
+	{% endif %}
+
+	var required = {};
+	Object.assign(required, groups);
+
+	const queryString = window.location.search;
+	if (queryString != "") {
+		var vis_groups = {};
+		var params = new URLSearchParams(queryString);
+		for (group in groups) {
+			if (params.get(group) != null) {
+				vis_groups[group] = params.get(group).split(",");
+			}
+		}
+		if (Object.keys(vis_groups).length == 0 && default_groups != {} && params.get("pic") == null) {
+			setArtVis(default_groups);
+		} else if (Object.keys(vis_groups).length > 0) {
+			setArtVis(vis_groups);
+		}
+		if (params.get("pic") != null) {
+			let url = encodeURIComponent(params.get("pic"));
+			let ind = -1;
+			for (let i=0; i<lightbox.elements.length; i++){
+				let this_url = lightbox.elements[i]["href"].split("/");
+				this_url = this_url[this_url.length - 1];
+				if (url == this_url) {
+					ind = i;
+				}
+			}
+			if (ind != -1) {
+				lightbox.openAt(ind);
+			}
+		}
+  } else if (default_groups!=null){
+		setArtVis(default_groups);
+	}
+</script>
