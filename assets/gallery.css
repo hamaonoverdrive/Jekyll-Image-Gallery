@@ -1,0 +1,20 @@
+table.group1 {
+  width: 100%;
+}
+
+.group1 td, .group2 td, .group3 td {
+  min-width: calc(82.5ch *0.3);
+}
+
+.group1 tr {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em
+}
+
+.carrot-right {
+  content: ">";
+}
+
+.carrot-left {
+  content: "<";
+}

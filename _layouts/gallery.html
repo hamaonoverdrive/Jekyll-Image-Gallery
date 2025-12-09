@@ -75,10 +75,10 @@ layout: default
 				{% assign permalink_start = " <a href='" %}
 				{% assign permalink_link = page.url | remove: ".html" %}
 				{% assign permalink_mid = "?pic=" %}
-				{% assign permalink_end = "'><i class='fa-solid fa-link'></i></a>" %}
+				{% assign permalink_end = "'></a>" %}
 				{% assign title = image.title | smartify | append: permalink_start | append: permalink_link | append: permalink_mid | append: image.path | append: permalink_end %}
 				{% assign loc = path | textloc %}
-			{% include image.html url=thumb big=path no_mag="true" no_alt="true" lightbox="true" no_center="true" id=id description=description title=title descloc=loc %}
+			{% include image.html url=thumb big=path no_alt="true" lightbox="true" id=id description=description title=title descloc=loc %}
 			</span>
 		{% endfor %}
 	</div>

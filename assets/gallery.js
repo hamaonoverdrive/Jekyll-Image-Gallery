@@ -5,13 +5,13 @@ function toggleSubfilters(id_name) {
   var table = document.getElementById("tb-" + id_name);
   if (target.style.display === "block") {
     target.style.display = "none";
-    icon.classList.add("fa-angles-right");
-    icon.classList.remove("fa-angles-left");
+    icon.classList.add("carrot-right");
+    icon.classList.remove("carrot-left");
     table.classList.remove("bordered");
   } else {
     target.style.display = "block";
-    icon.classList.remove("fa-angles-right");
-    icon.classList.add("fa-angles-left");
+    icon.classList.remove("carrot-right");
+    icon.classList.add("carrot-left");
     table.classList.add("bordered");
   }
 }

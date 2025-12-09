@@ -1,58 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% include headdata.html %}
+    {% if page.layout == 'gallery' %}
+    <link href="{{ "/assets/glightbox.min.css" | absolute_url }}" rel="stylesheet" type="text/css" />
+    <link href="{{ "/assets/gallery.css" | absolute_url }}" rel="stylesheet" type="text/css" />
+    <script src="{{ "/assets/glightbox.min.js" | absolute_url }}"></script>
+    <script src="{{ "/assets/gallery.js" | absolute_url }}"></script>
+    {% endif %}
   </head>
   <body>
-    <div id="printHeader">
-      hamaonoverdrive://neocities
-    </div>
-    <table id="main">
-      <tr>
-        <td id="header" colspan="3">
-          {% if page.reader_mode %}
-            <span id="nav">
-          {% endif %}
-              {% include menu.html %}
-              <br/><br/>
-          {% if page.reader_mode %}
-            </span>
-          <a href="javascript:void(0);" id="navLink" onclick="toggleNav()"><i id="navIcon" class="fa-solid fa-angles-right"></i>NAV</a>
-          {% endif %}
-          <a href="javascript:void(0);" id="tocLink" onclick="toggleToc()">TOC<i id="tocIcon" class="fa-solid fa-angles-left"></i></a>
-        </td>
-      </tr><td id="tdLeft"><span id="topAnchor"></span>
-        <div id="leftFixed"><br/>
-          <div class="ltr">&nbsp;&nbsp;&gt;<span class="toc-entry" style="padding-left: 2px;"><a href="#topAnchor">Top</a></span>
-            {{ content | toc_only }}
-            {% if page.comments %}
-              &nbsp;&nbsp;&gt;<span class="toc-entry" style="padding-left:2px;"><a href="#comments">Comments</a></span>
-              <br/>&nbsp;
-            {% endif %}
-          </div>
-        </div>
-      </td><td id="tdMid">
-        {% if page.reader_mode == false %}
-          <div id="mobileNoNavSpacer"></div>
-        {% endif %}
-        {{ content | inject_anchors }}
-        {% if page.comments %}
-          <h1 id="comments"><a class="anchor" href="#comments"></a>Comments</h1>
-          {% if page.comment_text %}
-            <p>{{ page.comment_text | markdownify }}</p>
-          {% endif %}
-          {% include welcomments/comments.html website_id = "SQkSCh2xFKQtTt39sd2ilZ7IF" %}
-        {% endif %}
-        <div id="footerMobile" class="footer">
-          {% include footer.html credits=page.credits %}
-        </div>
-      </td><td id="tdRight">
-        {% include musicPlayer.html %}
-      </td></tr>
-      <tr id="bottomTr"><td colspan="2" id="footerDesktop" class="footer">
-          {% include footer.html credits=page.credits %}
-      </td></tr>
-    </table>
-    {% include footdata.html %}
+    {{ content }}
   </body>
 </html>
