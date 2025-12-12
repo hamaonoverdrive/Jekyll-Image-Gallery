@@ -72,11 +72,16 @@ layout: default
 				{% else %}
 					{% assign description = tagtext %}
 				{% endif %}
+				{% if image.title %}
+					{% assign title = image.title %}
+				{% else %}
+					{% assign title = "Link" %}
+				{% endif %}
 				{% assign permalink_start = " <a href='" %}
-				{% assign permalink_link = page.url | remove: ".html" %}
+				{% assign permalink_link = page.path | split: "." | first %}
 				{% assign permalink_mid = "?pic=" %}
-				{% assign permalink_end = "'></a>" %}
-				{% assign title = image.title | smartify | append: permalink_start | append: permalink_link | append: permalink_mid | append: image.path | append: permalink_end %}
+				{% assign permalink_end = "'>" %}
+			{% assign title = permalink_start | append: permalink_link | append: permalink_mid | append: image.path | append: permalink_end | append: title | append: "</a>" %}
 				{% assign loc = path | textloc %}
 			{% include image.html url=thumb big=path no_alt="true" lightbox="true" id=id description=description title=title descloc=loc %}
 			</span>
