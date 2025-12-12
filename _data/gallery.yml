@@ -1,7 +1,222 @@
-default:
-
 images:
-
+  200X:
+    images:
+    - desc: From [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Morning_Fog_at_GGB.JPG)
+      path: 200X_Morning_Fog_at_GGB.jpeg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Fog at the Golden Gate Bridge
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Misumena_vatia_female_Luc_Viatour_1.jpg)
+      path: 200X_Misumena_vatia_female_Luc_Viatour_1.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Animal
+        - Vegetable
+        Warnings:
+        - Arachnophobia
+      title: Misumena vatia
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Common_crow_(Euploea_core)_on_Malvales_flower.jpg)
+      path: 200X_Common_crow_(Euploea_core)_on_Malvales_flower.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Animal
+        - Vegetable
+        Warnings:
+        - No warning needed
+      title: Euploea core on a Malvales flower
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Araneus_trifolium_and_its_web_with_fog_droplets_at_Twin_Peaks_in_San_Francisco.jpg)
+      path: 200X_Araneus_trifolium_and_its_web_with_fog_droplets_at_Twin_Peaks_in_San_Francisco.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Animal
+        Warnings:
+        - Arachnophobia
+      title: Araneus trifolium and its web
+  201X:
+    images:
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Yale_School_of_Architecture,_Brutalist_stairwell,_2018.jpg)
+      path: 201X_Yale_School_of_Architecture,_Brutalist_stairwell,_2018.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Brutalist Stairwell
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Printed_Circuit_Boards_in_a_sheet.jpg)
+      path: 201X_Printed_Circuit_Boards_in_a_sheet.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: PCBs in a sheet
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:On_the_edge_-_free_world_version.jpg)
+      path: 201X_On_the_edge_-_free_world_version.jpg
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - Wikimedia
+        Warnings:
+        - No warning needed
+      title: On the edge
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:National_Library_(Te_Puna_M%C4%81tauranga_o_Aotearoa)_-_Thorndon,_Wellington_-_c.2019-20_(Indexed,_greyscale).png)
+      path: "201X_National_Library_(Te_Puna_M\u0101tauranga_o_Aotearoa)_-_Thorndon,_Wellington_-_c.2019-20_(Indexed,_greyscale).png"
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: The National Library of New Zealand
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:La_Madone_de_S%C3%A3o_Paulo_painting_by_Alexis_Diaz_and_INTI_in_S%C3%A3o_Paulo_downtown.jpg)
+      path: "201X_La_Madone_de_S\xE3o_Paulo_painting_by_Alexis_Diaz_and_INTI_in_S\xE3\
+        o_Paulo_downtown.jpg"
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - Wikimedia
+        Warnings:
+        - No warning needed
+      title: La Madone Mural
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Fog_rolls_in_just_above_the_tree_tops_in_a_winter_bridge.jpg)
+      path: 201X_Fog_rolls_in_just_above_the_tree_tops_in_a_winter_bridge.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Fog rolls in
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Ein_freches_M%C3%A4dchen_zeigt_Stinkefinger.jpg)
+      path: "201X_Ein_freches_M\xE4dchen_zeigt_Stinkefinger.jpg"
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - Wikimedia
+        Warnings:
+        - No warning needed
+      title: "Ein freches M\xE4dchen zeigt Stinkefinger"
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Crosswalk_of_Market_at_Third,_San_Francisco.jpg)
+      path: 201X_Crosswalk_of_Market_at_Third,_San_Francisco.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Crosswalk of Market at Third, San Francisco
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Bee_in_Loto_in_Botanical_Garden_of_S%C3%A3o_Paulo.jpg)
+      path: "201X_Bee_in_Loto_in_Botanical_Garden_of_S\xE3o_Paulo.jpg"
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Animal
+        - Vegetable
+        Warnings:
+        - No warning needed
+      title: Bee in Loto Botanical Garden
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Anime_girl_at_beach.jpg)
+      path: 201X_Anime_girl_at_beach.jpg
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - Wikimedia
+        Warnings:
+        - No warning needed
+      title: Anime girl at beach
+  202X:
+    images:
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:WeaverBuilding_Facade.jpg)
+      path: 202X_WeaverBuilding_Facade.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Weaver Building
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Circuit_Soldering.gif)
+      path: 202X_Circuit_Soldering.gif
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Mineral
+        Warnings:
+        - No warning needed
+      title: Circuit Soldering
+    - desc: From [wikimedia commons](https://commons.wikimedia.org/wiki/File:Agapanthus_--_2021_--_3928.jpg)
+      path: 202X_Agapanthus_--_2021_--_3928.jpg
+      tags:
+        Category:
+        - Photograph
+        Photograph:
+        - Vegetable
+        Warnings:
+        - No warning needed
+      title: Agapanthus
+    - desc: Landing page image for [hamaonoverdrive.online](http://hamaonoverdrive.online).
+        [Original gallery link](https://hamaonoverdrive.online/gallery?pic=20250725%20gale%20header.png)
+      path: 202X_0725 gale header.png
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - My Original Characters
+        My Original Characters:
+        - Gale
+        Warnings:
+        - No warning needed
+      title: Gale (Website Header)
+    - desc: Illustration meant to accompany a short story. [Original gallery link](https://hamaonoverdrive.online/gallery?pic=20240717%20skin%20in%20the%20game.png)
+      path: 202X_0717 skin in the game.png
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - My Original Characters
+        My Original Characters:
+        - Tora
+        Warnings:
+        - No warning needed
+      title: Skin in the Game
+    - desc: '[Original gallery link](https://hamaonoverdrive.online/gallery?pic=20250106%20I%20depend%20on%20you.png)'
+      path: 202X_0106 I depend on you.png
+      tags:
+        Category:
+        - Illustration
+        Illustration:
+        - My Original Characters
+        My Original Characters:
+        - Gale
+        - Tora
+        Warnings:
+        - No warning needed
+      title: I depend on you
 tags:
   Category:
   - Illustration:

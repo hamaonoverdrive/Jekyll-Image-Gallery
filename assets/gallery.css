@@ -11,10 +11,14 @@ table.group1 {
   padding-bottom: 0.5em
 }
 
-.carrot-right {
+.carrot-right:before {
   content: ">";
 }
 
-.carrot-left {
+.carrot-left:before {
   content: "<";
+}
+
+.carrot-selector {
+  text-decoration: none;
 }

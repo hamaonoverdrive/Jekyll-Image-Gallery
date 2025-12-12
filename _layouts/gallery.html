@@ -13,14 +13,14 @@ layout: default
 				<table class="group2" id="tb-{{ subgroup.first.first | slugify: "ascii" }}"><tr>
 						<td>
 							<input type="checkbox" id="ch-{{ subgroup.first.first | slugify: "ascii" }}" onclick="toggleArtVis('{{ subgroup.first.first | slugify: "ascii" }}')" checked />
-							{{ subgroup.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ subgroup.first.first | slugify: 'ascii' }}')"><i class="fa-solid fa-angles-right" id="ic-{{ subgroup.first.first | slugify: 'ascii'}}"></i></a>
+							{{ subgroup.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ subgroup.first.first | slugify: 'ascii' }}')" class="carrot-selector"><i class="carrot-right" id="ic-{{ subgroup.first.first | slugify: 'ascii'}}"></i></a>
 						</td><td id="{{ subgroup.first.first | slugify: 'ascii' }}" style="display:none;">
 							{% for tag in subgroup[subgroup.first.first] %}
 								{% if tag.first.first %}
 									<table class="group3" id="tb-{{ tag.first.first | slugify: "ascii" }}"><tr>
 											<td>
 												<input type="checkbox" id="ch-{{ tag.first.first | slugify: "ascii" }}" onclick="toggleArtVis('{{ tag.first.first | slugify: "ascii" }}')" checked />
-												{{ tag.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ tag.first.first | slugify: 'ascii' }}')"><i class="fa-solid fa-angles-right" id="ic-{{ tag.first.first | slugify: 'ascii' }}"></i></a>
+												{{ tag.first.first }} <a href="javascript:void(0);" onclick="toggleSubfilters('{{ tag.first.first | slugify: 'ascii' }}')" class="carrot-selector"><i class="carrot-right" id="ic-{{ tag.first.first | slugify: 'ascii' }}"></i></a>
 											</td><td id="{{ tag.first.first | slugify: 'ascii' }}" style="display:none;">
 										{% for subtag in tag[tag.first.first] %}
 											<input type="checkbox" id="ch-{{ subtag | slugify: "ascii" }}" onclick="toggleArtVis('{{ subtag | slugify: "ascii" }}')" checked />

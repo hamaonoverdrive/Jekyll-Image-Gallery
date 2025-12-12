@@ -8,5 +8,6 @@ Gemfile
 Gemfile.lock
 _config.yml
 _posts/
+_responsive/
 makefile
 *.*~

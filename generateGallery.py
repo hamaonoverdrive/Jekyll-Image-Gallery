@@ -54,7 +54,7 @@ def main(interactive=False):
     files = sorted(files, reverse = True)
 
     if "images" not in data.keys():
-        data["images"] = []
+        data["images"] = {}
     current_imgs = []
     for year in data["images"].keys():
         current_imgs.extend([datum["path"] for datum in data["images"][year]["images"]])
@@ -62,7 +62,7 @@ def main(interactive=False):
     for file in files:
         if file not in current_imgs:
             new_im = {"path": file}
-            year = int(file[0:4])
+            cat = file.split("_")[0]
             if interactive:
                 print(f"Found new image: {file}")
                 title = input("Add title for image (enter for none): ")
@@ -74,9 +74,9 @@ def main(interactive=False):
                 new_im["tags"] = {}
                 for group, tags in data["tags"].items():
                     new_im = resolve_tags(new_im, group, tags)
-            if year not in data["images"].keys():
-                data["images"][year] = {"images": []}
-            data["images"][year]["images"].append(new_im)
+            if cat not in data["images"].keys():
+                data["images"][cat] = {"images": []}
+            data["images"][cat]["images"].append(new_im)
 
     for year, vals in data["images"].items():
         vals["images"] = sorted(vals["images"], reverse=True, key=lambda y: y["path"])

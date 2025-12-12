@@ -1,3 +1,5 @@
+# encoding: utf-8
+require 'shellwords'
 require 'fileutils'
 
 module Jekyll
@@ -6,7 +8,7 @@ module Jekyll
 
     def identify(input)
       site = @context.registers[:site]
-      if site.config['responsive']['verbose']
+      if site.config['responsive'] and site.config['responsive']['verbose']
         verbose = site.config['responsive']['verbose']
       else
         verbose = false
@@ -60,17 +62,17 @@ module Jekyll
 
       if File.exist?(src) and ['.jpg', '.jpeg', '.png', '.gif'].include?(extname)
         dest = site.dest
-        if site.config['responsive']['pixels']
+        if site.config['responsive'] and site.config['responsive']['pixels']
           pixels = site.config['responsive']['pixels']
         else
-          pixels = 10000
+          pixels = 22500
         end
-        if site.config['responsive']['quality']
+        if site.config['responsive'] and site.config['responsive']['quality']
           quality = site.config['responsive']['quality']
         else
-          quality = 80
+          quality = 30
         end
-        if site.config['responsive']['verbose']
+        if site.config['responsive'] and site.config['responsive']['verbose']
           verbose = site.config['responsive']['verbose']
         else
           verbose = false
