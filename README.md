@@ -4,7 +4,7 @@ Static site template to display images with automatic filtering and tagging.
 Built on top of [EZ Gallery](https://netfriend.neocities.org/ez-gallery/) and [GLightbox](https://github.com/biati-digital/glightbox).
 
 # Key features:
-* **Automatic thumbnail generation and integrated lightbox**: give users a high-level glance of your work with low-bandwidth images, with high-res versions are a single click away.
+* **Automatic thumbnail generation and integrated lightbox**: give users a high-level glance of your work with low-bandwidth images, with high-res versions a single click away.
 * **Robust tagging and filtering system**: user-definable and hierarchical tags make it easy for users to find the works they want to see or for you to link users to a specific subset of your works.
 * **All gallery information stored in a single file, which can be updated through a bundled python script**: no pesky copy and pasting of image locations and descriptions!
 * **Direct link to individual images in gallery view**: avoid hotlinking raw images and preserve the bundled description for a given piece.
