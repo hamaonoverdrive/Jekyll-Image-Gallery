@@ -81,7 +81,7 @@ From here, go to step 2.2 to finish setting up the gallery.
 
 # Step 4 (optional): Gallery configuration settings
 #### How to specify image tags via URL
-Example: [`?category=photograph&photograph=animal,mineral&warnings=no-warning-needed`](http://hamaonoverdrive.online/demo/gallery?category=photograph&photograph=animal,mineral&warnings=no-warning-needed)
+Example: [`?category=photograph&photograph=animal,mineral&warnings=no-warning-needed`](http://hamaonoverdrive.online/demo/gallery/?category=photograph&photograph=animal,mineral&warnings=no-warning-needed)
 - add a `?` to the end of the URL and list each tag group after that, separated by a `&`
 - both tags and groups are lowercase and "slugified", ie all spaces are replaced with `-` and all punctuation is removed
 - when specifying multiple tags in the same group, separate them with a comma
